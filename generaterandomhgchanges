@@ -15,6 +15,5 @@ filenamebase=$2
 filenameextension=$3
 for (( filenumber = 1; filenumber <= $count ; filenumber++ )); do
     echo "Some new random text: $RANDOM" >> $filenamebase$filenumber.$filenameextension
-    hg add $filenamebase$filenumber.$filenameextension
-    hg commit -m"A random change of $RANDOM to $filenamebase$filenumber.$filenameextension"
+    hg commit -A -m"A random change of $RANDOM to $filenamebase$filenumber.$filenameextension" --verbose
 done
