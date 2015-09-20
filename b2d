@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ${HOME}/dev/boot2docker-xhyve
+if [[ $(pgrep -f LABEL=boot2docker) ]] ; then
+  # Already running, export DOCKER_HOST
+  echo "export DOCKER_HOST=$(make ip):2375"
+else
+  # Not running, start first
+  echo "boot2docker not running, starting. Re-run $0 in a new terminal"
+  sudo ./xhyverun.sh
+fi
